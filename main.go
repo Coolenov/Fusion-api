@@ -1,15 +1,13 @@
 package main
 
 import (
-	"FusionAPI/api/controllers"
-	"FusionAPI/initialize"
-	"FusionAPI/lib/gormDb"
+	"github.com/Coolenov/Fusion-api/api/controllers"
+	"github.com/Coolenov/Fusion-library/gormDb"
 	"github.com/gin-gonic/gin"
 )
 
 func init() {
-	initialize.LoadEnv()
-	gormDb.DbConnect()
+	gormDb.DbConnect("root:root@tcp(db:3306)/Fusion_db?utf8mb4&loc=Local")
 }
 
 func main() {

@@ -1,15 +1,15 @@
 package controllers
 
 import (
-	"FusionAPI/lib"
-	"FusionAPI/lib/gormDb"
 	"fmt"
+	"github.com/Coolenov/Fusion-library/gormDb"
+	"github.com/Coolenov/Fusion-library/types"
 	"github.com/gin-gonic/gin"
 	"strconv"
 )
 
 func GetAllContents(c *gin.Context) {
-	var contents []lib.Content
+	var contents []types.Content
 	contents = gormDb.GetContents()
 	c.JSON(200, gin.H{
 		"contents": contents,
