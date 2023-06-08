@@ -9,7 +9,7 @@ import (
 func init() {
 	//dbUrl := os.Getenv("DB_URL")
 	//gormDb.DbConnect(dbUrl)
-	gormDb.DbConnect("root:firstpass@tcp(db:3306)/Fusion_db?utf8mb4&loc=Local")
+	gormDb.DbConnect("root:firstpass@tcp(fusiondb:3306)/Fusion_db?utf8mb4&loc=Local")
 }
 
 func main() {
