@@ -4,11 +4,10 @@ import (
 	"github.com/Coolenov/Fusion-api/api/controllers"
 	"github.com/Coolenov/Fusion-library/gormDb"
 	"github.com/gin-gonic/gin"
+	"log"
 )
 
 func init() {
-	//dbUrl := os.Getenv("DB_URL")
-	//gormDb.DbConnect(dbUrl)
 	gormDb.DbConnect("root:firstpass@tcp(fusiondb:3306)/Fusion_db?utf8mb4&loc=Local")
 }
 
@@ -25,5 +24,8 @@ func main() {
 	r.POST("/next", controllers.GetNextContent)
 	r.POST("/previous", controllers.GetPreviousContent)
 
-	r.Run(":10000")
+	err := r.Run(":10000")
+	if err != nil {
+		log.Println(err)
+	}
 }
