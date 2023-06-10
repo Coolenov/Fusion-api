@@ -1,12 +1,15 @@
-FROM golang:alpine AS build
-RUN apk --no-cache add gcc g++ make git
-WORKDIR /go/src/app
+FROM golang:alpine
+
+
+WORKDIR /app
+
 COPY . .
-RUN go get ./...
-RUN GOOS=linux go build -ldflags="-s -w" -o ./bin/my-app ./main.go
-FROM alpine:3.9
-RUN apk --no-cache add ca-certificates
-WORKDIR /usr/bin
-COPY --from=build /go/src/app/bin /go/bin
+
+RUN go get -u github.com/gin-gonic/gin
+RUN go get -u github.com/Coolenov/Fusion-library
+RUN go get -u gorm.io/driver/mysql
+
 EXPOSE 10000
-ENTRYPOINT /go/bin/my-app
+
+CMD ["go", "run", "main.go"]
+
