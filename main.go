@@ -8,7 +8,7 @@ import (
 )
 
 func init() {
-	gormDb.DbConnect("root:firstpass@tcp(maindb:3306)/Fusion_db?utf8mb4&loc=Local")
+	gormDb.DbConnect("root:firstpass@tcp(database:3306)/Fusion_db?utf8mb4&loc=Local")
 }
 
 func main() {
