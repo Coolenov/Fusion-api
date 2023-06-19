@@ -27,7 +27,7 @@
       shell: sudo docker pull coolenov/{{service_name}}:latest
 
     - name : "start service"
-      shell: sudo docker run --rm -d -p 7500:10000 --name {{container_name}} coolenov/{{service_name}}:latest
+      shell: sudo docker run --rm -d --name {{container_name}} coolenov/{{service_name}}:latest
 
     - name : "connect service to docker-network"
       shell: sudo docker network connect {{network_name}} {{container_name}}
